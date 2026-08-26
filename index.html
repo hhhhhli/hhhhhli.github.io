@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Li Huang (黄利) — Tsinghua University</title>
+  <meta name="description" content="Homepage of Li Huang, postdoctoral researcher at Tsinghua University. Research on deformable object perception and manipulation, dual-arm dexterous manipulation, and robotic perception.">
+  <style>
+    :root {
+      --text: #22272b;
+      --muted: #66707a;
+      --accent: #1a5fb4;
+      --accent-dark: #124a8f;
+      --line: #e4e7eb;
+      --bg: #ffffff;
+      --section-bg: #f7f9fb;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* navbar */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.95);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    }
+    nav .inner {
+      max-width: 860px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+    }
+    nav .brand { font-weight: 700; margin-right: auto; color: var(--text); font-size: 16px; }
+    nav a.navlink {
+      color: var(--muted); padding: 4px 10px; border-radius: 6px; font-size: 14.5px;
+    }
+    nav a.navlink:hover { color: var(--accent); background: var(--section-bg); text-decoration: none; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px 60px; }
+
+    header.hero { padding: 44px 0 8px; }
+    .hero-grid { display: flex; gap: 32px; align-items: flex-start; }
+    .hero-grid .text { flex: 1 1 auto; min-width: 0; }
+    h1 { font-size: 30px; margin: 0 0 4px; letter-spacing: .2px; }
+    .affil { color: var(--muted); margin: 0 0 16px; font-size: 16px; }
+    .hero-photo { flex: 0 0 180px; }
+    .hero-photo img {
+      width: 180px; border-radius: 8px; border: 1px solid var(--line);
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .contact-row { margin-top: 14px; font-size: 14.5px; }
+    .contact-row span.sep { color: var(--line); margin: 0 8px; }
+
+    section { margin-top: 44px; }
+    h2 {
+      font-size: 21px; margin: 0 0 18px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block; padding-right: 40px;
+    }
+    ul.news { list-style: none; margin: 0; padding: 0; }
+    ul.news li { padding: 5px 0 5px 0; }
+    ul.news .date { color: var(--accent); font-weight: 600; margin-right: 8px; white-space: nowrap; }
+    .news-badge {
+      display: inline-block; font-size: 11.5px; font-weight: 700; color: #fff;
+      background: #d08770; border-radius: 4px; padding: 1px 6px; margin-left: 6px;
+      vertical-align: 1px; letter-spacing: .3px;
+    }
+    .news-badge.new { background: #2e7d32; }
+
+    .keywords { color: var(--muted); font-style: italic; margin: 18px 0 6px; }
+    .research-thread { margin-top: 26px; }
+    .research-thread h3 { font-size: 17px; margin: 0 0 8px; }
+    .thread-tag { color: var(--accent-dark); font-weight: 600; }
+
+    .pub { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .pub:last-child { border-bottom: none; }
+    .pub .title { font-weight: 600; }
+    .pub .authors { color: var(--muted); font-size: 14.5px; }
+    .pub .authors em { color: #1a5fb4; font-style: normal; font-weight: 600; }
+    .pub .venue { font-size: 14.5px; margin-top: 2px; }
+    .pub .venue .conf { color: var(--accent-dark); font-weight: 600; }
+    .pub .links a { font-size: 13.5px; margin-right: 10px; }
+    .badge {
+      display: inline-block; font-size: 11.5px; font-weight: 700; color: #fff;
+      background: var(--accent); border-radius: 4px; padding: 1px 6px;
+      margin-left: 6px; vertical-align: 1px;
+    }
+    .badge.oral { background: #b8860b; }
+
+    ul.plain { margin: 0; padding-left: 20px; }
+    ul.plain li { padding: 4px 0; }
+    ul.awards { list-style: none; padding: 0; }
+    ul.awards li { padding: 6px 0; display: flex; gap: 14px; }
+    ul.awards .year { color: var(--accent); font-weight: 600; min-width: 72px; white-space: nowrap; }
+
+    .edu-item { display: flex; gap: 18px; padding: 10px 0; }
+    .edu-item .degree { flex: 1; }
+    .edu-item .degree .school { font-weight: 600; }
+    .edu-item .degree .detail { color: var(--muted); font-size: 14.5px; }
+    .edu-item .year { color: var(--muted); white-space: nowrap; font-size: 14.5px; }
+
+    footer {
+      margin-top: 60px; padding-top: 18px; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 13px; text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .hero-grid { flex-direction: column-reverse; }
+      .hero-photo img { width: 150px; }
+      ul.awards li { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <span class="brand">Li Huang&nbsp;黄利</span>
+    <a class="navlink" href="#bio">Bio</a>
+    <a class="navlink" href="#news">News</a>
+    <a class="navlink" href="#research">Research</a>
+    <a class="navlink" href="#publications">Publications</a>
+    <a class="navlink" href="#awards">Awards</a>
+    <a class="navlink" href="#education">Education</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ==================== Bio ==================== -->
+  <header class="hero" id="bio">
+    <div class="hero-grid">
+      <div class="text">
+        <h1>Li Huang <span style="font-weight:400; font-size:22px;">(黄利)</span></h1>
+        <p class="affil">
+          Postdoctoral Researcher, Tsinghua University<br>
+          Working with Prof. Xiang Li
+        </p>
+        <p>
+          I am a postdoctoral researcher in Prof. Xiang Li's group at Tsinghua
+          University (2026.7 – present). I received my Ph.D. degree from the College
+          of Biomedical Engineering and Instrument Science, Zhejiang University
+          (2018.9 – 2026.6), under the supervision of Prof. Yaowu Chen and
+          Prof. Xiang Tian. Before that, I received my B.Eng. degree from the College
+          of Control Science and Engineering, Zhejiang University (2014.9 – 2018.6).
+        </p>
+        <p>
+          My research focuses on robotic perception and manipulation of deformable
+          objects, including depth recovery for reflective cables, semantic
+          classification of garments in manipulation processes, and dual-arm
+          dexterous manipulation.
+        </p>
+        <div class="contact-row">
+          <b>Email</b>: li.huang@zju.edu.cn
+          <span class="sep">|</span>
+          <a href="mailto:li.huang@zju.edu.cn">[Contact]</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/photo.jpg" alt="Li Huang">
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== News ==================== -->
+  <section id="news">
+    <h2>Recent News</h2>
+    <ul class="news">
+      <li><span class="date">[2026.07]</span> Joined Tsinghua University as a postdoctoral researcher with Prof. Xiang Li.</li>
+      <li><span class="date">[2026.06]</span> Successfully defended my Ph.D. thesis and graduated from Zhejiang University.<span class="news-badge new">milestone</span></li>
+      <li><span class="date">[2026.08]</span> One paper on implicit coverage path planning of 3D surfaces is under review at <b>RSS 2026</b>.<span class="news-badge">under review</span></li>
+      <li><span class="date">[2026]</span> Our paper <i>DLODepth: Real-time Depth Recovery for 3D Reflective Deformable Linear Object</i> was accepted to <b>IEEE RA-L</b>.<span class="news-badge new">accepted</span></li>
+      <li><span class="date">[2025.12]</span> One national invention patent on deformable object classification was granted (CN115731423B).</li>
+      <li><span class="date">[2025.05]</span> Nominated for <b>Best Poster</b> at the IEEE/RSJ IROS ROMADO Workshop.</li>
+      <li><span class="date">[2025]</span> Released the first reflective-cable (DLO) depth dataset with 18k real RGB-D captures.</li>
+      <li><span class="date">[2023]</span> Our paper on deforming garment classification was accepted to <b>IEEE RA-L</b>.</li>
+      <li><span class="date">[2022]</span> Nominated for the <b>T.J. Tarn Best Paper Award</b> at IEEE ROBIO 2022.</li>
+    </ul>
+  </section>
+
+  <!-- ==================== Research ==================== -->
+  <section id="research">
+    <h2>Research</h2>
+    <p>
+      My research focuses on enabling robots to reliably perceive and manipulate
+      <b>deformable objects</b> in the real world, spanning perception, dual-arm
+      dexterous manipulation, and full-system real-robot validation.
+    </p>
+    <p class="keywords">Research Keywords: Deformable Object Perception &amp; Manipulation, Dual-arm Dexterous Manipulation, Robot Perception.</p>
+
+    <div class="research-thread">
+      <h3><span class="thread-tag">[Thread 1]</span> Spatial Perception of Deformable Linear Objects (Cables)</h3>
+      <p>
+        Cables are slender and optically reflective, so existing RGB-D-based robotic
+        perception systems fail to observe their depth reliably — a bottleneck for
+        localization and pose estimation in real deployments. I built an interactive
+        acquisition system with multi-view cooperative-target fusion and a SAM-2-based
+        semi-automatic annotation pipeline, releasing the first reflective-cable dataset
+        (18k real captures). I then proposed to use reliable measurements in raw depth
+        maps as spatial anchors from relative to absolute depth, with a 3D-distance-aware
+        loss and local continuity losses on top of DepthAnything V2, achieving 4.3 cm
+        spatial accuracy (73.1% success, +55.5% over the best baseline). The algorithm
+        was validated with a client–server real-robot system (X-Arm7 + AG-160 gripper +
+        Orbbec Gemini 336L, ROS 2 / FastAPI) for cable grasping.
+      </p>
+    </div>
+
+    <div class="research-thread">
+      <h3><span class="thread-tag">[Thread 2]</span> Semantic Classification of Deformable Objects (Garments)</h3>
+      <p>
+        Garment category provides spatial-semantic cues for feature extraction and
+        long-horizon task planning, yet garments are highly configurable and
+        self-occluding. During grasp-and-lift manipulation, I fuse appearance changes
+        across continuous video frames: a shallow feature extraction module captures
+        spatial, motion, and temporal cues, and a tree-based fusion module re-weights
+        key frames during manipulation. Using only RGB sequences, the method reaches
+        97.5% accuracy on a public benchmark, surpassing prior state-of-the-art RGB-D methods.
+      </p>
+    </div>
+
+    <div class="research-thread">
+      <h3><span class="thread-tag">[Thread 3]</span> Robotic Path Planning</h3>
+      <p>
+        Beyond deformable-object perception, I also study path planning for robotic
+        systems: non-redundant manipulator surface coverage under rank-deficient
+        manipulability constraints (RSS), implicit coverage path planning of 3D surfaces
+        with arbitrary sensing models and non-injective inverse kinematics (RSS, under
+        review), and topology-stable k-shortest non-homotopic path planning for wheeled
+        robots via tree-based representations (ICRA).
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== Publications ==================== -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <p style="color:var(--muted); font-size:14.5px;">(* equal contribution; first-author works in <em style="font-style:normal;">blue</em>)</p>
+
+    <div class="pub">
+      <div class="title">DLODepth: Real-time Depth Recovery for 3D Reflective Deformable Linear Object</div>
+      <div class="authors"><em>Li Huang</em>, Tong Yang, Xiang Tian, Rongxin Jiang, Yaowu Chen</div>
+      <div class="venue"><span class="conf">IEEE Robotics and Automation Letters (RA-L)</span>, 2026</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Deforming Garment Classification with Shallow Temporal Extraction and Tree-based Fusion</div>
+      <div class="authors"><em>Li Huang</em>, Tong Yang, Rongxin Jiang, Xiang Tian, Fan Zhou, Yaowu Chen</div>
+      <div class="venue"><span class="conf">IEEE Robotics and Automation Letters (RA-L)</span>, 2023</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Continuous Perception Garment Classification Based on Optical Flow Variation</div>
+      <div class="authors"><em>Li Huang</em>, Tong Yang, Yu Zhang, Xiang Tian, Yaowu Chen</div>
+      <div class="venue"><span class="conf">IEEE International Conference on Robotics and Biomimetics (ROBIO)</span>, 2022 <span class="badge oral">T.J. Tarn Best Paper Nominee</span></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Tree-based Representation of Locally Shortest Paths for 2D k-Shortest Non-homotopic Path Planning</div>
+      <div class="authors">Tong Yang, <em>Li Huang</em>, Yue Wang, Rong Xiong</div>
+      <div class="venue"><span class="conf">IEEE International Conference on Robotics and Automation (ICRA)</span>, 2024</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Optimal Non-Redundant Manipulator Surface Coverage with Rank-Deficient Manipulability Constraints</div>
+      <div class="authors">Tong Yang, Jaime Valls Miro, <em>Li Huang</em>, Yue Wang, Rong Xiong</div>
+      <div class="venue"><span class="conf">Robotics: Science and Systems (RSS)</span>, 2024</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Implicit Coverage Path Planning of 3D Surfaces with Arbitrary Sensing Models and Non-Injective Inverse Kinematics</div>
+      <div class="authors">Tong Yang, *, <em>Li Huang</em>, et al.</div>
+      <div class="venue"><span class="conf">Robotics: Science and Systems (RSS)</span>, 2026 <span class="badge" style="background:#d08770;">Under Review</span></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Deep-learning accelerated super-resolution radial fluctuations (SRRF) enables real-time live cell imaging</div>
+      <div class="authors">Jincheng Chen, Qiuyu Fang, <em>Li Huang</em>, Xin Ye, Luhong Jin, Heng Zhang, et al.</div>
+      <div class="venue"><span class="conf">Optics and Lasers in Engineering</span>, 2024</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">AIM 2019 Challenge on Bokeh Effect Synthesis: Methods and Results</div>
+      <div class="authors">Andrey Ignatov, Jagruti Patel, Radu Timofte, Bolun Zheng, Xin Ye, <em>Li Huang</em>, et al.</div>
+      <div class="venue"><span class="conf">IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)</span>, 2019</div>
+    </div>
+
+  </section>
+  <!-- ==================== Awards ==================== -->
+  <section id="awards">
+    <h2>Awards &amp; Honors</h2>
+    <ul class="awards">
+      <li><span class="year">2025</span><span>Best Poster Nomination, ROMADO Workshop, IEEE/RSJ IROS</span></li>
+      <li><span class="year">2022</span><span>T.J. Tarn Best Paper Nomination, IEEE ROBIO</span></li>
+      <li><span class="year">2022</span><span>Second Prize, China Intelligent Medical Device Innovation Competition (中国智能医疗器械创新大赛二等奖)</span></li>
+      <li><span class="year">2017</span><span>Third Place, RoboCup Small Size League; Champion, RoboCup Iran Open Small Size League</span></li>
+      <li><span class="year">—</span><span>National Graduate Scholarship (研究生国家奖学金); Outstanding Graduate Student of Zhejiang University; Outstanding Party Worker of the College</span></li>
+      <li><span class="year">2018</span><span>Outstanding Graduate of Zhejiang University; First-Class Scholarship for Research &amp; Innovation; E+H Scholarship; Phoenix Contact Scholarship</span></li>
+    </ul>
+  </section>
+
+  <!-- ==================== Education ==================== -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div class="degree">
+        <div class="school">Tsinghua University — Postdoctoral Researcher</div>
+        <div class="detail">Host: Prof. Xiang Li</div>
+      </div>
+      <div class="year">Jul 2026 – Present</div>
+    </div>
+    <div class="edu-item">
+      <div class="degree">
+        <div class="school">Zhejiang University — Ph.D. (combined M.S./Ph.D. program)</div>
+        <div class="detail">College of Biomedical Engineering and Instrument Science<br>
+        Supervisors: Prof. Yaowu Chen, Prof. Xiang Tian</div>
+      </div>
+      <div class="year">Sep 2018 – Jun 2026</div>
+    </div>
+    <div class="edu-item">
+      <div class="degree">
+        <div class="school">Zhejiang University — B.Eng.</div>
+        <div class="detail">College of Control Science and Engineering<br>
+        Supervisors: Prof. Yu Zhang, Prof. Rong Xiong</div>
+      </div>
+      <div class="year">Sep 2014 – Jun 2018</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Li Huang · Last updated: August 2026 ·
+    <a href="mailto:li.huang@zju.edu.cn">li.huang@zju.edu.cn</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
